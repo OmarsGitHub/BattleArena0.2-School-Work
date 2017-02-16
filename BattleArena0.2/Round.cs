@@ -145,6 +145,8 @@ namespace BattleArena0._2
             int damage = randomDamage.GiveRandom(1, 3);
             return damage;
         }
+
+        //Test
         
     }
 }
