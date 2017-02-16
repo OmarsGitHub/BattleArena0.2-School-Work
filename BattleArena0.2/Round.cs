@@ -80,7 +80,9 @@ namespace BattleArena0._2
         /// <param name="enemy"></param>
         public void DisplayRoundDraw(Character player, Character enemy)
         {
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Evenly matched, the combatant circle each other, looking for a better opportunity.");
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         /// <summary>
@@ -102,6 +104,7 @@ namespace BattleArena0._2
         /// <param name="player"></param>
         /// <param name="enemy"></param>
         public void DisplayEndBattle(Character player, Character enemy)
+
         {
             if (player.Health < 1)
             {
@@ -118,10 +121,18 @@ namespace BattleArena0._2
                 Console.WriteLine("--------------");
                 Console.WriteLine("{0} is victorious!", player.Name);
                 player.Score++;
+                GiveResources(player);
                 player.defeatedEnemies.Add(enemy.Name);
 
             }
 
+        }
+
+        public void GiveResources(Character player)
+        {
+            player.Xp += player.GiveRandom(1, 3);
+            player.Gold += player.GiveRandom(1, 5);
+             
         }
 
         /// <summary>

@@ -25,7 +25,6 @@ namespace BattleArena0._2
             Console.ForegroundColor = ConsoleColor.White;
             Character player = new Character();
             player.CreateCharacter(GetPlayerName());
-
             bool loop = true;
             while (player.Health > 0 && loop)
             {

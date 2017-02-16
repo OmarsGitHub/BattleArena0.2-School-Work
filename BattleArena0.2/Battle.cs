@@ -28,7 +28,36 @@ namespace BattleArena0._2
 
             Round newRound = new Round();
             newRound.newRound(player, enemy);
+            AfterBattle(player);
 
+        }
+
+        public static void AfterBattle(Character player)
+        {
+            Console.WriteLine("You have {0} Gold and {1} Xp", player.Gold, player.Xp);
+            Console.WriteLine("What would you like to spend them on?");
+            Console.WriteLine("S - Strength");
+            Console.WriteLine("D - Damage");
+            Console.WriteLine("H - Health");
+            Console.WriteLine("Press any other key to keep your money");
+
+            ConsoleKey keyPressed = Console.ReadKey(true).Key;
+            switch (keyPressed)
+            {
+                case ConsoleKey.A:
+                    Console.WriteLine("Du har tryckt på a");
+                    Console.ReadKey();
+                    break;
+                case ConsoleKey.D:
+                    Console.WriteLine("Du har tryckt på d");
+                    break;
+                case ConsoleKey.H:
+                    Console.WriteLine("Du har tryckt på h");
+                    break;
+                default:
+                    Console.WriteLine("Du har int tryckt på a, d eller h");
+                    break;
+            }
         }
 
         /// <summary>

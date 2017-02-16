@@ -13,6 +13,8 @@ namespace BattleArena0._2
         public int Health { get; set; }
         public int Damage { get; set; }
         public int Score { get; set; }
+        public int Gold { get; set; }
+        public int Xp { get; set; }
         public string CurrentEnemy { get; set; }
         public List<string> defeatedEnemies = new List<string>();
 
@@ -89,7 +91,8 @@ namespace BattleArena0._2
                 Console.WriteLine("Omar fought and killed: {0}", defeatedEnemies[i]);
             }
             Console.WriteLine("{0}s total score is {1}", Name, Score);
-
+            Console.WriteLine(player.Gold);
+            Console.WriteLine(player.Xp);
             Console.ReadKey();
         }
 
