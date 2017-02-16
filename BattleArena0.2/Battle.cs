@@ -28,30 +28,38 @@ namespace BattleArena0._2
 
             Round newRound = new Round();
             newRound.newRound(player, enemy);
-            AfterBattle(player);
+            if (player.Health > 0)
+            {
+
+                AfterBattle(player);
+            }
 
         }
 
         public static void AfterBattle(Character player)
         {
-            Console.WriteLine("You have {0} Gold and {1} Xp", player.Gold, player.Xp);
+            Console.WriteLine("You now have {0} Gold and {1} Xp", player.Gold, player.Xp);
             Console.WriteLine("What would you like to spend them on?");
-            Console.WriteLine("S - Strength");
-            Console.WriteLine("D - Damage");
-            Console.WriteLine("H - Health");
+            Console.WriteLine("1 Health potion(1HP)       5Gold");
+            Console.WriteLine("2 Health potion(5HP)      15Gold");
+            Console.WriteLine("3 Health potion(10HP)     25Gold");
+            Console.WriteLine("4 Super potion(lvl up)    50Gold");
             Console.WriteLine("Press any other key to keep your money");
 
             ConsoleKey keyPressed = Console.ReadKey(true).Key;
             switch (keyPressed)
             {
-                case ConsoleKey.A:
+                case ConsoleKey.D1:
                     Console.WriteLine("Du har tryckt på a");
                     Console.ReadKey();
                     break;
-                case ConsoleKey.D:
+                case ConsoleKey.D2:
                     Console.WriteLine("Du har tryckt på d");
                     break;
-                case ConsoleKey.H:
+                case ConsoleKey.D3:
+                    Console.WriteLine("Du har tryckt på h");
+                    break;
+                case ConsoleKey.D4:
                     Console.WriteLine("Du har tryckt på h");
                     break;
                 default:
@@ -71,6 +79,11 @@ namespace BattleArena0._2
             player.DisplayCharacter();
             Console.WriteLine();
             enemy.DisplayCharacter();
+        }
+
+        public static void LevelUp()
+        {
+
         }
 
     }

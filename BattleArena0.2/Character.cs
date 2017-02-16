@@ -8,6 +8,12 @@ namespace BattleArena0._2
 {
     class Character
     {
+        
+        public Character()
+        {
+            CreateInventory();
+        }
+        
         public string Name { get; set; }
         public int Strength { get; set; }
         public int Health { get; set; }
@@ -96,9 +102,16 @@ namespace BattleArena0._2
             Console.ReadKey();
         }
 
+        public static void CreateInventory()
+        {
+            Inventory newInventory = new Inventory();
+        }
+
         /// <summary>
         /// En array med ett antal fiendenamn som används för att slumpa ut namn till fienderna.
         /// </summary>
         public string[] enemyNames = new string[10] { "Omar1", "Omar2", "Omar3", "Omar4", "Omar5", "Omar6", "Omar7", "Omar8", "Omar9", "Omar10", };
     }
+
+    
 }

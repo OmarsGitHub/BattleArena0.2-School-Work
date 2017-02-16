@@ -112,6 +112,7 @@ namespace BattleArena0._2
                 Console.ReadKey();
                 Console.WriteLine("--------------");
                 Console.WriteLine("{0} is victorious!", enemy.Name);
+                Console.WriteLine();
             }
 
             else
@@ -120,20 +121,43 @@ namespace BattleArena0._2
                 Console.ReadKey();
                 Console.WriteLine("--------------");
                 Console.WriteLine("{0} is victorious!", player.Name);
+                Console.WriteLine();
+                Console.WriteLine("For defeating {0} you recieved {1} Gold and {2} Xp!", enemy.Name, RecieveGold(player), RecieveXp(player));
+                Console.WriteLine();
                 player.Score++;
-                GiveResources(player);
+                
                 player.defeatedEnemies.Add(enemy.Name);
 
             }
 
         }
 
-        public void GiveResources(Character player)
+        /// <summary>
+        /// Ger spelaren guld som returvärde och sparar också guld i player.Gold
+        /// </summary>
+        /// <param name="player"></param>
+        /// <returns></returns>
+        public int RecieveGold(Character player)
         {
-            player.Xp += player.GiveRandom(1, 3);
-            player.Gold += player.GiveRandom(1, 5);
+            int gold = player.GiveRandom(1, 3);
+            player.Gold += gold;
+            return gold;
              
         }
+
+       /// <summary>
+       /// Ger spelaren xp som returvärde och sparar också xp i player.Xp
+       /// </summary>
+       /// <param name="player"></param>
+       /// <returns></returns>
+        public int RecieveXp(Character player)
+        {
+            int xp = player.GiveRandom(1, 3);
+            player.Xp += xp;
+            return xp;
+        }
+
+       
 
         /// <summary>
         /// Rullar ett random nummer genom att använda randomfunktionen i klassen Character
@@ -151,13 +175,13 @@ namespace BattleArena0._2
         /// </summary>
         /// <param name="randomDamage"></param>
         /// <returns></returns>
-        public int Damage(Character randomDamage)
+        public int Damage(Character player)
         {
-            int damage = randomDamage.GiveRandom(1, 3);
+            int damage = player.Damage + player.Strength + player.GiveRandom(0, 3);
             return damage;
         }
 
-        //Test
+        
         
     }
 }
